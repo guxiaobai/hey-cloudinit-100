@@ -2,12 +2,12 @@
 
 ```bash
 qemu-system-x86_64 \
-    -machine accel=kvm \
+    -enable-kvm \
     -cpu host \
     -m 1024 \
     -nographic \
     -drive file=noble-server-cloudimg-amd64.img,if=virtio,format=qcow2 \
-    -netdev user,id=net0 \
+    -netdev user,id=net0,hostfwd=tcp::2222-:22 \
     -device virtio-net-pci,netdev=net0 \
     -smbios type=1,serial=ds='nocloud;s=http://10.0.2.2:8000/'
 ```
