@@ -73,35 +73,7 @@ qm set 100 --boot c --bootdisk scsi0
 qm set 100 --serial0 socket --vga serial0
 ```
 
-然后启动：
 
-```
-qm start 100
-```
-
-# 三、如果是 cloud image，要注意默认账号
-
-像 `debian-13-generic-amd64.qcow2` 这种通常是 **Cloud Image**，默认不能直接登录，需要配合 cloud-init 设置账号密码。
-
-在 Proxmox 添加 cloud-init：
-
-```bash
-# qm set 100 --ide2 local-lvm:cloudinit
-qm set 100 --ide2 local-lvm:cloudinit
-```
-
-设置用户名密码：
-
-```
-qm set 100 --ciuser debian --cipassword 123456
-```
-
-然后启动。
-
-
-```
-qm set 100 --ipconfig0 ip=192.168.100.50/24,gw=192.168.100.2
-```
 
 
 
