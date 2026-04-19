@@ -1,12 +1,3 @@
-## 查看 qcow2 镜像信息
-
-```bash
-qemu-img info debian-13-generic-amd64.qcow2
-```
-
-
-
-
 
 ## 参数说明
 
